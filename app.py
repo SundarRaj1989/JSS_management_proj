@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import Flask, render_template, redirect
 import datetime
 
@@ -20,6 +21,16 @@ def login():
 @app.route('/signup')
 def signup():
     return render_template('signup.html')
+=======
+from flask import Flask, render_template
+
+app = Flask(__name__)
+app.secret_key = 'dfsdsdsd'
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+>>>>>>> 7a2c4ffea36a6f27242896a45acee22296fca3cc
 
 if __name__ == '__main__':
     app.run(debug=True)
