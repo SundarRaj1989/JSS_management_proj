@@ -1,0 +1,4 @@
+
+#signup input[type=text], #signup input[type=email], #signup input[type=number]{
+    margin-bottom: 1em;
+}
