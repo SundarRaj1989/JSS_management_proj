@@ -1,0 +1,50 @@
+{% extends "core.html" %}
+{% block signup %}
+
+<main class="bg bg-dark">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center min-vh-100">
+            <div class="col-6">
+                <div class="card bg bg-light">
+                    <div class="card-header">
+                        <h3 class="card-title">Signup here</h3>
+                    </div>
+                    <div class="card-body">
+                        <form role="form" id="signup">   
+                            <div class="row">
+                                <div class="col-6">
+                                    <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter First Name" aria-label="First Name">
+                                </div>
+                                <div class="col-6">
+                                    <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter Last Name" aria-label="Last Name">
+                                </div>
+                                <div class="col-6">
+                                    <input type="email" class="form-control" id="email_id" name="email_id" placeholder="Enter Email Id" aria-label="Email Id">
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" class="form-control" id="contact_number" name="contact_number" placeholder="Enter Number" aria-label="Contact Number">
+                                </div>
+                                <div class="col-12 text-right">
+                                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                                </div>
+                            </div>   
+
+							
+                            
+                            
+                            
+
+                            
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        Already have an account?
+						<a href="{{url_for('login')}}" class="btn btn-outline-dark text-gradient font-weight-bold">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
