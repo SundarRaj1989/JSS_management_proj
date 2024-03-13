@@ -9,10 +9,6 @@ def index():
     u_dt = datetime.datetime.utcnow()
     return render_template('index.html', utc_dt = u_dt )
 
-@app.route('/about')
-def about():
-    return render_template('about.html')
-
 @app.route('/login')
 def login():
     return render_template('login.html')
