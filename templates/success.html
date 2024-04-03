@@ -5,13 +5,24 @@
     <div class="container">
         <div class="row d-flex justify-content-center align-items-center min-vh-100">
             <div class="col-6">
+               
                 <div class="card alert alert-success">
                     <div class="card-body">
-                        <h3 class="card-title">Registration Successful</h3>
+                        <h3 class="card-title">Hurraayyyy !!!</h3>
                         
                     </div>
                     <div class="card-footer">
-                        Account registered successfully . Click here to 
+                        
+                        {% with msg = get_flashed_messages() %}
+                        {% if msg %}
+                        {% for message in msg %}
+                            <div class="alert alert-success" role="alert">
+                                <strong>{{ message }}</strong>
+                                <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+                            </div>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
 						<a href="{{url_for('login')}}" class="btn btn-outline-success text-gradient font-weight-bold">Sign In</a>
                     </div>
                 </div>
