@@ -20,13 +20,10 @@ def fixed_alpha_random_number_id(letters, digits_count):
     return final_string
 
 
+
 #Fixed letters JSS  + last 2 digit of current year + random sigle letter + digits according to passed number [e.g. Fixed_L-JSS, D-4 = JSS5032 ]
-
-
-def random_alpha_numeric_id_with_currentYear(letters_count, digits_count):
-    brand_name = 'JSS'
-    cy = datetime.datetime.today()
-    current_year = cy.strftime("%y")
+def random_alpha_numeric_id_with_currentYear(letters_count, digits_count, current_year):
+    brand_name = 'JSS'    
     rndm_letter = ''.join(random.choice(string.ascii_uppercase) for i in range(letters_count))
     rndm_number = ''.join(random.choice(string.digits) for i in range(digits_count))
     rndm_alph_num = str(rndm_letter) + str(rndm_number)  
