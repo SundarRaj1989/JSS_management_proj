@@ -4,6 +4,8 @@ import datetime
 import get_form_data
 import id_generator
 
+import authentication_db
+
 app = Flask(__name__)
 app.secret_key = 'jdjhd67d873hdihd38id38h'
 
@@ -23,15 +25,19 @@ def signup():
 @app.route('/register', methods=['POST'])
 def register_details():
     user_data = get_form_data.signup_form_data()
-    print("form data = ", user_data)
-    user_data['user_id'] = 
+    user_data['user_id'] = id_generator.random_alpha_numeric_id_with_currentYear(1, 5)
     user_data['regd_date'] = datetime.datetime.today()
-    print("form data = ", user_data)
-    return redirect(url_for('success'))
+    #check user availability
+    user_email = user_data['email_id']
+    user_id = user_data['user_id']
+    check_user = authentication_db.check_user_availability(user_email, user_id)
+    print('user availability = ', check_user)
+    # status = authentication_db.save_user_details(user_data)
+    return redirect(url_for('success', msg = check_user))
 
-@app.route('/success')
-def success():
-    return render_template('success.html')
+@app.route('/success/<msg>')
+def success(msg):
+    return render_template('success.html', msg = msg)
 
 
 if __name__ == '__main__':
