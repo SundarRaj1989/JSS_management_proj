@@ -5,12 +5,22 @@
 	<div class="container ">
 		<div class="row d-flex justify-content-center align-items-center min-vh-100">
 			<div class="col-6">
-				
+				{% with msg = get_flashed_messages() %}
+				{% if msg %}
+				{% for message in msg %}
+					<div class="alert alert-warning" role="alert">
+						<strong>{{ message }}</strong>
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					</div>
+				{% endfor %}
+				{% endif %}
+				{% endwith %}
 				<div class="card bg-warning">
 					<div class="card-body">
 						<h4 class="card-title">Sign In Here</h4>												
 					</div>
 					<div class="card-body">
+						
 						<form role="form" method="post">
 							<label for="username" class="form-label">Username</label>
 							<input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
